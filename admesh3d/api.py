@@ -142,7 +142,9 @@ def estimate_nodes(domain, pts, d, h_min, h_max, size_fn) -> float:
 def tetrahedralize(domain: Domain, *, h_max: float, h_min: float | None = None,
                    size_fn: Callable[[np.ndarray], np.ndarray] | None = None,
                    max_nodes: int = 1_000_000, max_iter: int = 1000,
-                   ttol: float = 0.1, dptol: float = 0.001, seed: int = 0) -> Mesh:
+                   ttol: float = 0.1, dptol: float = 0.001, seed: int = 0,
+                   callback: Callable[[int, np.ndarray], None] | None = None,
+                   callback_every: int = 10) -> Mesh:
     """Tetrahedralize an SDF domain with 3D DistMesh.
 
     Without ``size_fn`` the target edge length is ``h_max``.  With ``size_fn``
@@ -180,7 +182,8 @@ def tetrahedralize(domain: Domain, *, h_max: float, h_min: float | None = None,
                       f"side; seed spacing capped at {cap:g}", UserWarning, stacklevel=2)
 
     res = distmesh3d(domain, h0, h_min, h_max, size_fn=fn, max_iter=int(max_iter),
-                     ttol=float(ttol), dptol=float(dptol), seed=int(seed))
+                     ttol=float(ttol), dptol=float(dptol), seed=int(seed),
+                     callback=callback, callback_every=int(callback_every))
     if len(res.tets) == 0:
         raise ValueError("meshing produced no elements; h_max is probably too "
                          "large for this domain")

@@ -15,6 +15,11 @@ from .quality import tet_quality, tet_signed_volumes
 
 Q_MIN = 0.05          # slivers below this radius ratio are removed
 FSCALE = 1.1          # bar force scale factor (Persson's 3D value)
+# Seed lattice density relative to one node per h0^3.  A relaxed DistMesh tet
+# mesh has edges about 1.15-1.2x the spacing of the cubic lattice it grew from
+# (and more where the seeds are thinned at random), so the lattice is made
+# denser to land the absolute edge length on the requested size.
+SEED_DENSITY = 1.6
 DELTAT = 0.1          # pseudo time step at the start of the run
 # The time step is cooled during the last part of the run: it starts to halve
 # every ANNEAL_HALF_LIFE * max_iter iterations once ANNEAL_START * max_iter
@@ -51,9 +56,10 @@ def seed_points(domain: Domain, h0: float, h_min: float, h_max: float,
     """Jittered cubic lattice inside the domain, plus the fixed points."""
     rng = np.random.default_rng(seed)
     lo, hi = (np.array(b, dtype=float) for b in domain.bbox)
-    axes = [np.arange(lo[k], hi[k] + 0.5 * h0, h0) for k in range(3)]
+    hs = h0 / SEED_DENSITY ** (1.0 / 3.0)
+    axes = [np.arange(lo[k], hi[k] + 0.5 * hs, hs) for k in range(3)]
     grid = np.stack(np.meshgrid(*axes, indexing="ij"), axis=-1).reshape(-1, 3)
-    grid = grid + rng.uniform(-0.01 * h0, 0.01 * h0, size=grid.shape)
+    grid = grid + rng.uniform(-0.01 * hs, 0.01 * hs, size=grid.shape)
     geps = 0.1 * h0
     p = grid[domain.sdf(grid) < geps]
     if size_fn is not None and len(p):
@@ -237,8 +243,12 @@ def _compact(p, tets):
 
 def distmesh3d(domain: Domain, h0: float, h_min: float, h_max: float, size_fn=None,
                max_iter: int = 1000, ttol: float = 0.1, dptol: float = 0.001,
-               seed: int = 0) -> MeshResult:
-    """Run 3D DistMesh and return cleaned, positively oriented tets."""
+               seed: int = 0, callback=None, callback_every: int = 10) -> MeshResult:
+    """Run 3D DistMesh and return cleaned, positively oriented tets.
+
+    ``callback(it, p)`` gets a copy of node positions at iteration 0 and
+    every ``callback_every`` iterations.
+    """
     geps = 0.1 * h0
     p = seed_points(domain, h0, h_min, h_max, size_fn, seed)
     n_fixed = len(np.asarray(domain.fixed_points()).reshape(-1, 3))
@@ -255,6 +265,8 @@ def distmesh3d(domain: Domain, h0: float, h_min: float, h_max: float, size_fn=No
     last_move = np.inf
     it = 0
     history = []
+    if callback is not None:
+        callback(0, p.copy())
     for it in range(1, max_iter + 1):
         if np.max(np.linalg.norm(p - p_old, axis=1)) > ttol * h0:
             tets = triangulate(p, domain, h0, geps)
@@ -285,6 +297,8 @@ def distmesh3d(domain: Domain, h0: float, h_min: float, h_max: float, size_fn=No
         last_move = (np.max(np.linalg.norm(step[interior], axis=1)) / h0
                      if np.any(interior) else 0.0)
         history.append(last_move)
+        if callback is not None and it % max(1, int(callback_every)) == 0:
+            callback(it, p.copy())
         if last_move < dptol:
             converged = True
             break
