@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "admesh3D"
+version = "0.1.0"
+description = "Experimental prototype 3D mesher (tetrahedra via 3D DistMesh, prism extrusion) in the ADMESH family."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["numpy", "scipy"]
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+authors = [
+    { name = "Dominik Mattioli" },
+]
+maintainers = [
+    { name = "Dominik Mattioli" },
+]
+keywords = ["mesh", "adcirc", "hydrodynamics", "prototype"]
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "Intended Audience :: Science/Research",
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering",
+]
+
+[project.optional-dependencies]
+test = ["pytest"]
+admesh2d = ["admesh2D"]
+
+[project.urls]
+Source = "https://github.com/domattioli/ADMESH"
+Sibling = "https://pypi.org/project/admesh2D/"
+
+[tool.setuptools.packages.find]
+include = ["admesh3d*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["slow: long-running tests (deselect with -m \"not slow\")"]
+addopts = "-m 'not slow'"
