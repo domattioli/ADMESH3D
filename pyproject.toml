@@ -9,7 +9,7 @@ description = "Experimental prototype 3D mesher (tetrahedra via 3D DistMesh, pri
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = ["numpy", "scipy"]
-license = "Apache-2.0"
+license = "LicenseRef-PolyForm-Noncommercial-1.0.0"
 license-files = ["LICENSE"]
 authors = [
     { name = "Dominik Mattioli" },
@@ -30,7 +30,8 @@ test = ["pytest"]
 admesh2d = ["admesh2D"]
 
 [project.urls]
-Source = "https://github.com/domattioli/ADMESH"
+Source = "https://github.com/domattioli/admesh3D"
+Issues = "https://github.com/domattioli/admesh3D/issues"
 Sibling = "https://pypi.org/project/admesh2D/"
 
 [tool.setuptools.packages.find]

@@ -1,19 +1,45 @@
-# admesh3D
+<p align="center"><img src="https://raw.githubusercontent.com/domattioli/admesh3D/main/docs/assets/hero.gif" width="640" alt="Reggie the Rex: a T-rex surface meshed into tetrahedra, layers revealed from the inside out"/></p>
 
-> **EXPERIMENTAL PROTOTYPE (version 0.1.0, below 1.0).** The API may change
-> without notice. Not for production use.
+<h1 align="center">admesh3D</h1>
 
-Tetrahedral meshing of signed-distance-function domains (3D DistMesh), sigma-layer
-prism extrusion of 2D triangle meshes, a quality report, and ASCII `.vtu` output.
-It is a sibling of the 2D mesh generator
-[ADMESH](https://github.com/domattioli/ADMESH) (PyPI: `admesh2D`).
+<p align="center"><strong>Tetrahedral meshing of signed-distance-function domains and sigma-layer prism extrusion, in the ADMESH family.</strong></p>
 
-## Quickstart
+<p align="center">
+<a href="https://pypi.org/project/admesh3D/"><img src="https://img.shields.io/pypi/v/admesh3D" alt="PyPI"></a>
+<a href="https://pypi.org/project/admesh3D/"><img src="https://img.shields.io/pypi/pyversions/admesh3D" alt="Python"></a>
+<a href="https://github.com/domattioli/admesh3D/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-PolyForm%20Noncommercial%201.0.0-blue" alt="License"></a>
+<a href="https://github.com/domattioli/admesh3D/actions/workflows/release.yml"><img src="https://github.com/domattioli/admesh3D/actions/workflows/release.yml/badge.svg" alt="Release"></a>
+<a href="https://doi.org/DOI_PENDING"><img src="https://img.shields.io/badge/DOI-pending-lightgrey" alt="DOI"></a>
+</p>
+
+## Table of Contents
+
+- [Status & Roadmap](#status--roadmap)
+- [Installation](#installation)
+- [Quick start](#quick-start)
+- [Examples](#examples)
+- [Limitations](#limitations)
+- [Citation](#citation)
+- [License](#license)
+
+## Status & Roadmap
+
+Experimental prototype, version 0.1.0 (pre-alpha). The API may change without notice.
+
+- **Now:** first tagged release; tetrahedra from a signed distance function (3D DistMesh), sigma-layer prisms, quality report, ASCII `.vtu` output.
+- **Next:** API review after first user feedback (no date).
+- **Later:** one ecosystem with ADMESH, CHILmesh and QuADMESH.
+
+## Installation
 
 ```bash
-pip install -e ".[test]"
-pytest -q
+pip install admesh3D            # import name: admesh3d
+pip install "admesh3D[admesh2d]"  # optional link to the 2D generator
 ```
+
+Requires Python 3.10+, `numpy` and `scipy`. From a clone: `pip install -e ".[test]" && pytest -q`.
+
+## Quick start
 
 ```python
 import admesh3d as am
@@ -33,6 +59,37 @@ assert p.n_elements == 10 and p.n_nodes == 24
 assert abs(p.volumes.sum() - 10.0) < 1e-9
 ```
 
+## Examples
+
+The hero animation above shows a T-rex surface filled with tetrahedra; element
+layers are revealed from the innermost layer outward. The test suite under
+[`tests/`](https://github.com/domattioli/admesh3D/tree/main/tests) holds one runnable case per feature.
+
+## Limitations
+
+- Prototype: no stability guarantee, no production use.
+- DistMesh relaxation is iterative and serial; large domains are slow, and the quality report
+  does not guarantee a minimum element quality.
+- Input domains are signed distance functions or extruded 2D triangle meshes. Arbitrary CAD
+  surfaces and STL files are not read.
+- Output is ASCII `.vtu` only. No ADCIRC 3D file format is written.
+- The `admesh2D` link is optional and tested only by a smoke test.
+
+## Citation
+
+Cite the concept DOI once the first Zenodo record exists (badge above is a placeholder).
+
+```bibtex
+@software{mattioli_admesh3d,
+  author  = {Mattioli, Dominik O.},
+  title   = {admesh3D: experimental 3D mesher in the ADMESH family},
+  year    = {2026},
+  url     = {https://github.com/domattioli/admesh3D},
+  version = {0.1.0}
+}
+```
+
 ## License
 
-Apache-2.0. See [LICENSE](LICENSE).
+[PolyForm Noncommercial License 1.0.0](https://github.com/domattioli/admesh3D/blob/main/LICENSE).
+Commercial use needs a separate license; contact via [github.com/domattioli](https://github.com/domattioli).
