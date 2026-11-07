@@ -1,0 +1,11 @@
+{
+  "title": "admesh3D: experimental 3D tetrahedral and prism mesher in the ADMESH family",
+  "upload_type": "software",
+  "license": "polyform-noncommercial-1.0.0",
+  "version": "0.1.0",
+  "creators": [
+    {"name": "Mattioli, Dominik O.", "affiliation": "Unaffiliated", "orcid": "0000-0002-7327-6337"}
+  ],
+  "description": "<p>admesh3D is an experimental Python prototype for three-dimensional meshing in the ADMESH family. It fills a signed-distance-function domain with tetrahedra by the 3D DistMesh method, extrudes a 2D triangle mesh into sigma-layer prisms, reports element quality and writes ASCII VTU files for ParaView. The domain primitives are box, sphere and cylinder with union, intersection and difference. Install with <code>pip install admesh3D</code>; the import name is <code>admesh3d</code>.</p>\n<h3>This release (0.1.0)</h3><h4>Added</h4><ul><li>First tagged release: <code>tetrahedralize</code> for signed-distance-function domains, <code>extrude</code> for sigma-layer prisms, <code>Mesh.quality_report</code> and <code>Mesh.to_vtu</code>.</li><li>DistMesh progress callback and denser size-function seeding.</li></ul><h3>Roadmap at 0.1.0</h3><ul><li><strong>Now:</strong> first tagged release of the prototype.</li><li><strong>Next:</strong> API review after first user feedback (no date).</li><li><strong>Later:</strong> one ecosystem with ADMESH, CHILmesh and QuADMESH.</li></ul><blockquote><p>Cite as: DO Mattioli (2026). admesh3D: experimental 3D tetrahedral and prism mesher in the ADMESH family. Zenodo. https://doi.org/CONCEPT_DOI_PENDING</p></blockquote>",
+  "keywords": ["mesh-generation", "tetrahedral-mesh", "distmesh", "signed-distance-function", "hydrodynamics", "python"]
+}

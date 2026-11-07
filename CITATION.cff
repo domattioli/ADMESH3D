@@ -1,0 +1,21 @@
+# Citation metadata for admesh3D. Rendered by GitHub as the "Cite this repository" button.
+cff-version: 1.2.0
+title: "admesh3D: experimental 3D tetrahedral and prism mesher in the ADMESH family"
+message: "If you use admesh3D in academic work, please cite it using these metadata."
+type: software
+authors:
+  - family-names: Mattioli
+    given-names: Dominik O.
+    orcid: https://orcid.org/0000-0002-7327-6337
+repository-code: "https://github.com/domattioli/admesh3D"
+url: "https://github.com/domattioli/admesh3D"
+license: PolyForm-Noncommercial-1.0.0
+version: 0.1.0
+date-released: 2026-11-07
+keywords:
+  - mesh-generation
+  - tetrahedral-mesh
+  - distmesh
+  - signed-distance-function
+  - hydrodynamics
+  - python
