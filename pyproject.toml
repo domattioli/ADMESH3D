@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "admesh3D"
-version = "0.1.0"
+version = "0.1.1"
 description = "Experimental prototype 3D mesher (tetrahedra via 3D DistMesh, prism extrusion) in the ADMESH family."
 readme = "README.md"
 requires-python = ">=3.10"

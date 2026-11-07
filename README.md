@@ -9,7 +9,7 @@
 <a href="https://pypi.org/project/admesh3D/"><img src="https://img.shields.io/pypi/pyversions/admesh3D" alt="Python"></a>
 <a href="https://github.com/domattioli/admesh3D/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-PolyForm%20Noncommercial%201.0.0-blue" alt="License"></a>
 <a href="https://github.com/domattioli/admesh3D/actions/workflows/release.yml"><img src="https://github.com/domattioli/admesh3D/actions/workflows/release.yml/badge.svg" alt="Release"></a>
-<a href="https://doi.org/DOI_PENDING"><img src="https://img.shields.io/badge/DOI-pending-lightgrey" alt="DOI"></a>
+<a href="https://doi.org/10.5281/zenodo.24043645"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.24043645.svg" alt="DOI"></a>
 </p>
 
 ## Table of Contents
@@ -24,7 +24,7 @@
 
 ## Status & Roadmap
 
-Experimental prototype, version 0.1.0 (pre-alpha). The API may change without notice.
+Experimental prototype, version 0.1.1 (pre-alpha). The API may change without notice.
 
 - **Now:** first tagged release; tetrahedra from a signed distance function (3D DistMesh), sigma-layer prisms, quality report, ASCII `.vtu` output.
 - **Next:** API review after first user feedback (no date).
@@ -77,7 +77,7 @@ layers are revealed from the innermost layer outward. The test suite under
 
 ## Citation
 
-Cite the concept DOI once the first Zenodo record exists (badge above is a placeholder).
+Cite the concept DOI, which always resolves to the latest release: [10.5281/zenodo.24043645](https://doi.org/10.5281/zenodo.24043645).
 
 ```bibtex
 @software{mattioli_admesh3d,
@@ -85,7 +85,8 @@ Cite the concept DOI once the first Zenodo record exists (badge above is a place
   title   = {admesh3D: experimental 3D mesher in the ADMESH family},
   year    = {2026},
   url     = {https://github.com/domattioli/admesh3D},
-  version = {0.1.0}
+  doi     = {10.5281/zenodo.24043645},
+  version = {0.1.1}
 }
 ```
 
