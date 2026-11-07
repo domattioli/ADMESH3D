@@ -6,6 +6,14 @@ and the project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-11-07
+
+### Changed
+- Zenodo concept DOI 10.5281/zenodo.24043645 added to `CITATION.cff`, `.zenodo.json` and the README badge and BibTeX.
+
+### Added
+- `tests/test_release_metadata.py`: guard that the concept DOI agrees across metadata files.
+
 ## [0.1.0] - 2026-11-07
 
 ### Added
