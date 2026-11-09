@@ -9,8 +9,8 @@ description = "Experimental prototype 3D mesher (tetrahedra via 3D DistMesh, pri
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = ["numpy", "scipy"]
-license = "LicenseRef-PolyForm-Noncommercial-1.0.0"
-license-files = ["LICENSE"]
+license = "PolyForm-Noncommercial-1.0.0 AND LicenseRef-Mattioli-NoAI-Training-1.0"
+license-files = ["LICENSE", "LICENSE-AI.md", "NOTICE", "LICENSES/*"]
 authors = [
     { name = "Dominik Mattioli" },
 ]

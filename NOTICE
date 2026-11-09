@@ -1,0 +1,6 @@
+admesh3D
+
+Required Notice: Copyright (c) 2026 Dominik Mattioli
+Required Notice: This software is also subject to the additional terms in LICENSE-AI.md (no AI training).
+
+admesh3d/distmesh3d.py implements the DistMesh method of Persson and Strang (2004) and follows DistMesh by Per-Olof Persson (https://github.com/popersson/DistMesh), Copyright (c) 2004-2026 Per-Olof Persson, MIT License (LICENSES/MIT.txt).
