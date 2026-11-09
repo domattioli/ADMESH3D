@@ -7,7 +7,7 @@
 <p align="center">
 <a href="https://pypi.org/project/admesh3D/"><img src="https://img.shields.io/pypi/v/admesh3D" alt="PyPI"></a>
 <a href="https://pypi.org/project/admesh3D/"><img src="https://img.shields.io/pypi/pyversions/admesh3D" alt="Python"></a>
-<a href="https://github.com/domattioli/admesh3D/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-PolyForm%20Noncommercial%201.0.0-blue" alt="License"></a>
+<a href="https://github.com/domattioli/admesh3D/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-PolyForm%20NC%201.0.0%20%2B%20no--AI%20terms-blue" alt="License"></a>
 <a href="https://github.com/domattioli/admesh3D/actions/workflows/release.yml"><img src="https://github.com/domattioli/admesh3D/actions/workflows/release.yml/badge.svg" alt="Release"></a>
 <a href="https://doi.org/10.5281/zenodo.24043645"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.24043645.svg" alt="DOI"></a>
 </p>
@@ -92,5 +92,5 @@ Cite the concept DOI, which always resolves to the latest release: [10.5281/zeno
 
 ## License
 
-[PolyForm Noncommercial License 1.0.0](https://github.com/domattioli/admesh3D/blob/main/LICENSE).
+Licensed under the [PolyForm Noncommercial License 1.0.0](https://github.com/domattioli/admesh3D/blob/main/LICENSE) **plus** additional terms that forbid AI training ([LICENSE-AI.md](https://github.com/domattioli/admesh3D/blob/main/LICENSE-AI.md)). Both apply. Notices: [NOTICE](https://github.com/domattioli/admesh3D/blob/main/NOTICE).
 Commercial use needs a separate license; contact via [github.com/domattioli](https://github.com/domattioli).
