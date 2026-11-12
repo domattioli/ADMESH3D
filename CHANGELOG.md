@@ -6,6 +6,9 @@ and the project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Changed
+- Minimum Python is now 3.11. Python 3.10 reached end of life in October 2026.
+
 ## [0.1.1] - 2026-11-07
 
 ### Changed

@@ -7,7 +7,7 @@ name = "admesh3D"
 version = "0.1.1"
 description = "Experimental prototype 3D mesher (tetrahedra via 3D DistMesh, prism extrusion) in the ADMESH family."
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.11"
 dependencies = ["numpy", "scipy"]
 license = "PolyForm-Noncommercial-1.0.0 AND LicenseRef-Mattioli-NoAI-Training-1.0"
 license-files = ["LICENSE", "LICENSE-AI.md", "NOTICE", "LICENSES/*"]

@@ -37,7 +37,7 @@ pip install admesh3D            # import name: admesh3d
 pip install "admesh3D[admesh2d]"  # optional link to the 2D generator
 ```
 
-Requires Python 3.10+, `numpy` and `scipy`. From a clone: `pip install -e ".[test]" && pytest -q`.
+Requires Python 3.11+, `numpy` and `scipy`. From a clone: `pip install -e ".[test]" && pytest -q`.
 
 ## Quick start
 
